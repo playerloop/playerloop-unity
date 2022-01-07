@@ -109,7 +109,7 @@ public class PlayerLoopSDK : MonoBehaviour
             where T : PlayerLoopReport
     {
         //skip if no file
-        //if file, upload it to the API then populate the unique ID field then trigger the prepare report
+        //if file (OR FILES!), upload it to the API then populate the unique ID field then trigger the prepare report
         yield return null;
     }
 
