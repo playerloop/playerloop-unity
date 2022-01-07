@@ -11,8 +11,7 @@ Get bug reports from your players, fast. Improve your game, reward the community
 
 If your player thinks there is a bug, you have something to fix. A lot of these do not throw exceptions in your code. With PlayerLoop, you can easily implement a bug reporting feature inside your game. You also get an easy-to-use interface to check the reports and download the savegame files and the screenshots to figure out what the problem is.
 
-We are currently in free closed Beta! You can join us here on Discord: [![Discord Chat](https://img.shields.io/discord/621778831602221064?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/rGeGVqnVps)**
-```
+We are currently in free closed Beta! You can join us here on Discord: [![Discord Chat](https://img.shields.io/discord/621778831602221064?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/rGeGVqnVps)
 
 ## Getting started
 
