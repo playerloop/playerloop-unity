@@ -105,7 +105,7 @@ public class PlayerLoopSDK : MonoBehaviour
 #if !UNITY_5
         <UnityWebRequestAsyncOperation>
 #endif
-        UploadSavegameFile<T>(T @event)
+        UploadAttachments<T>(T @event)
             where T : PlayerLoopReport
     {
         //skip if no file
@@ -113,11 +113,14 @@ public class PlayerLoopSDK : MonoBehaviour
         yield return null;
     }
 
-    public void NewReport(string ReportMessage, string savegameFilePath = null, string UserEmail = null, bool userPrivacyAccepted = false)
+    public void NewReport(string ReportMessage, List<string> attachmentsFilePaths = null, string UserEmail = null, bool userPrivacyAccepted = false)
     {
         PlayerLoopReport playerLoopReport = new PlayerLoopReport();
         playerLoopReport.message = ReportMessage;
-        playerLoopReport.localfilename = savegameFilePath;
+        if (attachmentsFilePaths != null)
+        {
+            playerLoopReport.localAttachmentPaths = attachmentsFilePaths;
+        }
         if (UserEmail != null)
         {
             playerLoopReport.author = new Author();
@@ -125,9 +128,9 @@ public class PlayerLoopSDK : MonoBehaviour
             playerLoopReport.author.acceptedPrivacy = userPrivacyAccepted;
         }
         PrepareReport(playerLoopReport);
-        if (playerLoopReport.localfilename != null)
+        if (playerLoopReport.localAttachmentPaths != null)
         {
-            StartCoroutine("UploadSavegameFile");
+            StartCoroutine("UploadAttachments");
         } else
         {
             StartCoroutine("SendReport");

@@ -19,14 +19,15 @@ If you did not do that already, head over [playerloop.io](https://playerloop.io)
 
 Then, in your Unity project, open the package manager, click the + icon, and click on add git url.
 
-![Install git package screenshot](./Documentation~/packagemanagerscreen.png)
+![Install git package screenshot](./Documentation~/packagemanagerscreen.PNG)
 
 Paste this URL:
 
 ```
 https://github.com/playerloop/unity-sdk.git
+```
 
-(set up authentication)
+(Set up authentication part missing)
 
 Then, in your code, add on top:
 

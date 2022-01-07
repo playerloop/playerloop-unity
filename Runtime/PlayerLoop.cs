@@ -12,7 +12,7 @@ namespace PlayerLoop
     public class PlayerLoopReport
     {
         public string message;
-        public string localfilename;
+        public List<string> localAttachmentPaths;
         public string uploadedfilename = null;
         public string timestamp;
         public string platform = "csharp";
