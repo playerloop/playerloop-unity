@@ -1,0 +1,26 @@
+{
+  "name": "com.playerloop.client",
+  "displayName": "PlayerLoop Client",
+  "description": "The PlayerLoop client allows you to easily implement, manage and act on player's reported bugs and feedbacks",
+  "version": "0.0.1",
+  "unity": "2019.2",
+  "unityRelease": "6f1",
+  "author" : {
+    "name": "PlayerLoop",
+    "email" : "info@playerloop.io",
+    "url" : "https://playerloop.io"
+  },
+  "documentationUrl" : "https://playerloop.io/documentation#client",
+  "samples" : {
+    "displayName": "<name-to-appear-in-the-UI>",
+    "description": "<brief-description>",
+    "path": "Samples~/<sample-subfolder>"
+  },
+  "keywords" : [ "bug", "bug reporting", "player report"],
+  "license" : "MIT",
+  "repository": {
+    "url": "https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git",
+    "type": "git",
+    "revision": "abb44f053e9a41d2e00e149e32a19bcec76e98b4"
+  }
+}
