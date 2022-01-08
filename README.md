@@ -17,7 +17,7 @@ We are currently in free closed Beta! You can join us here on Discord: [![Discor
 
 If you did not do that already, head over [playerloop.io](https://playerloop.io) and sign up for an account.
 
-Then, in your Unity project, open the package manager, click the + icon, and click on add git url.
+Then, in your Unity project, click on the main menu on top: `Window` and then `Package Manager`. Now click the + icon, and click on add git url.
 
 ![Install git package screenshot](./Documentation~/packagemanagerscreen.PNG)
 
@@ -26,8 +26,6 @@ Paste this URL:
 ```
 https://github.com/playerloop/unity-sdk.git
 ```
-
-(Set up authentication part missing)
 
 Then, in your scene, add an empty object and attach the `PlayerLoopSDK` script to it. Click on the object, and in the inspector fill in the 'Secret' with the secret key available in your [PlayerLoop settings](https://playerloop.io/settings):
 ![Fill in the secret screenshot](./Documentation~/packagemanagerscreen.PNG)

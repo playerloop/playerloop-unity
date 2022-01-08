@@ -993,7 +993,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1856356371}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InGameMenu, Assembly-CSharp
         m_MethodName: OpenPanel
         m_Mode: 3
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1856356371}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ingamemenu, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1856356371}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InGameMenu, Assembly-CSharp
         m_MethodName: OpenPanel
         m_Mode: 3
@@ -2032,7 +2032,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 533159911}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BugReportPanel, Assembly-CSharp
         m_MethodName: Submit
         m_Mode: 1
@@ -2974,7 +2974,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1856356371}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ingamemenu, Assembly-CSharp
         m_MethodName: OpenPanel
         m_Mode: 3
