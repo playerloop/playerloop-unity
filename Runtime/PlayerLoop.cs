@@ -21,6 +21,14 @@ namespace PlayerLoop
         public Context contexts;
         public Extra extra;
         public Author author;
+
+        public PlayerLoopReport()
+        {
+            this.contexts = new Context();
+            this.tags = new Tags();
+            this.extra = new Extra();
+            this.author = new Author();
+        }
     }
 
     [Serializable]

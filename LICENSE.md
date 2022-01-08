@@ -1,4 +1,4 @@
-	MIT License
+MIT License
 
 Copyright (c) 2020 PlayerLoop (https://playerloop.io) and individual contributors.
 

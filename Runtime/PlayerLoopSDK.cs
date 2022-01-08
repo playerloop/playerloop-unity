@@ -1,14 +1,11 @@
-using System;
-#if UNITY_5
-using System.Collections;
-#endif
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System;
 using PlayerLoop;
 using UnityEngine.Networking;
-using UnityDebug = UnityEngine.Debug;
-
+using UnityEngine.Events;
+using System.Text;
 
 public class PlayerLoopSDK : MonoBehaviour
 {
@@ -17,18 +14,25 @@ public class PlayerLoopSDK : MonoBehaviour
     private static PlayerLoopSDK _instance = null;
     private bool _initialized = false;
     public bool SendDefaultPii = true;
-    private string apiURL;
+    private string apiURL = "https://playerloop.io/api";
+
+    [HideInInspector]
+    public UnityEvent reportSent;
+    [HideInInspector]
+    public UnityEvent reportErrorInSending;
 
     public void Start()
     {
         if (secret == string.Empty)
         {
             // Empty string = disabled SDK
-            UnityDebug.LogWarning("No DSN defined. The PlayerLoop SDK will be disabled.");
+            Debug.LogWarning("No DSN defined. The PlayerLoop SDK will be disabled.");
             return;
         }
         _instance = this;
         _initialized = true;
+
+        reportSent = new UnityEvent();
     }
 
     private void PrepareReport(PlayerLoopReport @event)
@@ -47,22 +51,15 @@ public class PlayerLoopSDK : MonoBehaviour
         }
     }
 
-    private IEnumerator
-#if !UNITY_5
-        <UnityWebRequestAsyncOperation>
-#endif
-        SendReport<T>(T @event)
-            where T : PlayerLoopReport
+    private IEnumerator UploadReport(PlayerLoopReport @event)
     {
-        //PrepareReport(@event);
-
         var s = JsonUtility.ToJson(@event);
 
         var secretKey = secret;
         //var sentrySecret = _dsn.secretKey;
 
         var timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH\\:mm\\:ss");
-        var authString = string.Format("Sentry sentry_version=5,sentry_client=Unity0.1," +
+        var authString = string.Format("PlayerLoop playerloop=5,playerloop_client=Unity0.1," +
                  "playerloop_timestamp={0}," +
                  "playerloop_key={1}," +
                  "playerloop_secret={2}",
@@ -75,45 +72,33 @@ public class PlayerLoopSDK : MonoBehaviour
         www.SetRequestHeader("X-PlayerLoop-Auth", authString);
         www.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(s));
         www.downloadHandler = new DownloadHandlerBuffer();
-#if UNITY_5
-        yield return www.Send();
-#else
         yield return www.SendWebRequest();
-#endif
-
         while (!www.isDone)
         {
-            yield return null;
+            //loading
         }
         if (
-#if UNITY_5
-            www.isError
-#else
             www.isNetworkError || www.isHttpError
-#endif
              || www.responseCode != 200)
         {
-            UnityDebug.LogWarning("error sending request to sentry: " + www.error);
+            Debug.LogWarning("error sending request to sentry: " + www.error);
+            reportErrorInSending.Invoke();
         }
         else
         {
-            UnityDebug.Log("Sentry sent back: " + www.downloadHandler.text);
+            reportSent.Invoke();
+            yield return null;
         }
     }
 
-    private IEnumerator
-#if !UNITY_5
-        <UnityWebRequestAsyncOperation>
-#endif
-        UploadAttachments<T>(T @event)
-            where T : PlayerLoopReport
+    private IEnumerator UploadAttachments(PlayerLoopReport @event)
     {
         //skip if no file
         //if file (OR FILES!), upload it to the API then populate the unique ID field then trigger the prepare report
-        yield return null;
+        yield return StartCoroutine("uploadReport", @event);
     }
 
-    public void NewReport(string ReportMessage, List<string> attachmentsFilePaths = null, string UserEmail = null, bool userPrivacyAccepted = false)
+    public void SendReport(string ReportMessage, bool userPrivacyAccepted = false, string UserEmail = null, List<string> attachmentsFilePaths = null)
     {
         PlayerLoopReport playerLoopReport = new PlayerLoopReport();
         playerLoopReport.message = ReportMessage;
@@ -130,10 +115,15 @@ public class PlayerLoopSDK : MonoBehaviour
         PrepareReport(playerLoopReport);
         if (playerLoopReport.localAttachmentPaths != null)
         {
-            StartCoroutine("UploadAttachments");
+            StartCoroutine("UploadAttachments", playerLoopReport);
         } else
         {
-            StartCoroutine("SendReport");
+            StartCoroutine("UploadReport", playerLoopReport);
         }
+    }
+
+    public void OpenPrivacyPolicyPage()
+    {
+        Application.OpenURL("https://playerloop.io/privacy-policy");
     }
 }

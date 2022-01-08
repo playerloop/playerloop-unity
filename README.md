@@ -29,29 +29,72 @@ https://github.com/playerloop/unity-sdk.git
 
 (Set up authentication part missing)
 
-Then, in your code, add on top:
+Then, in your scene, add an empty object and attach the `PlayerLoopSDK` script to it. Click on the object, and in the inspector fill in the 'Secret' with the secret key available in your [PlayerLoop settings](https://playerloop.io/settings):
+![Fill in the secret screenshot](./Documentation~/packagemanagerscreen.PNG)
+
+Nice! Now you can reference that object in your scripts, by declaring it as follows:
 
 ```C#
-using PlayerLoop
+public PlayerLoopSDK playerloopSDK
 ```
 
-Now you can use this method to send a report:
+And then, in the inspector, drag the object you created before into this field in your class, like this:
+![Drag the object screenshot](./Documentation~/packagemanagerscreen.PNG)
+
+Awesome! Now you can call this function in your script:
 
 ```C#
-PlayerLoopSDK.SendReport("Description of the bug as sent by the user!");
+playerLoopSDK.SendReport("Description of the bug as sent by the user!");
 ```
 
 You can also optionally add the path to one or more files to attach them to the report. This is useful to attach savegames for example:
 
 ```C#
-PlayerLoopSDK.SendReport("message from the user", new List<string>(){ "path-to-your-file" } );
+playerLoopSDK.SendReport("message from the user", new List<string>(){ "path-to-your-file" } );
 ```
 
 You will usually call this method inside a dedicated UI screen that pops up after the user clicks on 'Report a bug' or something like that. You can check out the example below.
+You can subscribe to the event:
+
+```C#
+playerLoopSDK.reportSent
+```
+
+To update your UI once the report is uploaded. For example, if you have a function called `UpdateUIAfterReportSent`, you can add a listener as follows:
+
+```C#
+private void Start()
+{
+    playerLoopSDK.reportSent.AddListener(UpdateUIAfterReportSent);
+}
+```
+
+
+## Reference
+
+```C#
+void playerLoopSDK.SendReport(string ReportMessage, bool userPrivacyAccepted = false, string UserEmail = null, List<string> attachmentsFilePaths = null)
+```
+This function sends a report. You can attach multiple files and add a user identifier to then contact the user back. Only the first argument is mandatory. This function returns void, as it kicks off a coroutine.
+
+```C#
+playerLoopSDK.reportSent
+```
+This is a [UnityEvent](https://docs.unity3d.com/ScriptReference/Events.UnityEvent.html) that is fired when the report is successfully uploaded. Use it to update your UI.
+
+```C#
+playerLoopSDK.reportErrorInSending
+```
+This is a [UnityEvent](https://docs.unity3d.com/ScriptReference/Events.UnityEvent.html) that is fired when the report could not be uploaded for any reason. For example, the user may not have an active internet connection. Use it to update your UI.
+
+```C#
+playerLoopSDK.OpenPrivacyPolicyPage
+```
+This is a function that opens the PlayerLoop Privacy Policy page. Useful to give users a chance to check out our Privacy Policy page before accepting it. Check out the sample scene to see how to use it.
 
 ## Example scene
 
-The package will soon include a demo scene.
+The package includes a sample scene with a UI implementation.
 
 ## Contributing
 

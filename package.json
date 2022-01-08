@@ -11,16 +11,17 @@
     "url" : "https://playerloop.io"
   },
   "documentationUrl" : "https://playerloop.io/documentation#client",
-  "samples" : {
-    "displayName": "<name-to-appear-in-the-UI>",
-    "description": "<brief-description>",
-    "path": "Samples~/<sample-subfolder>"
-  },
   "keywords" : [ "bug", "bug reporting", "player report"],
   "license" : "MIT",
   "repository": {
-    "url": "https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git",
-    "type": "git",
-    "revision": "abb44f053e9a41d2e00e149e32a19bcec76e98b4"
-  }
+    "url": "https://github.com/playerloop/unity-sdk.git",
+    "type": "git"
+  },
+  "samples": [
+        {
+            "displayName": "Menu example",
+            "description": "A simple UI to show how to implement the SDK",
+            "path": "Samples~/Demo"
+        }
+   ]
 }
