@@ -11,32 +11,50 @@ namespace PlayerLoopSDK
     [Serializable]
     public class PlayerLoopReport
     {
-        public string message;
-        public List<string> localAttachmentPaths;
+        public string text;
+        [NonSerialized]
+        public List<string> localAttachmentPaths = null;
+        [NonSerialized]
         public string uploadedfilename = null;
+        [NonSerialized]
         public string timestamp;
-        public string platform = "csharp";
+        public string client = "unity";
         public string release;
-        public Tags tags;
-        public Context contexts;
-        public Extra extra;
-        public Author author;
+        public Metadata metadata;
+        public Context context;
+        public string type = "bug";
+        public Author player;
+        public bool accepted_privacy = true;
+        [NonSerialized]
+        public string id;
 
         public PlayerLoopReport()
         {
-            this.contexts = new Context();
-            this.tags = new Tags();
-            this.extra = new Extra();
-            this.author = new Author();
+            this.metadata = new Metadata();
+            this.metadata.tags = new Tags();
+            this.metadata.extra = new Extra();
+            this.context = new Context();
+            this.player = new Author();
+            //this.metadata.author = new Author();
         }
+    }
+
+    [Serializable]
+    public class Metadata
+    {
+        public Tags tags;
+        public Context context;
+        public Extra extra;
     }
 
     [Serializable]
     public class Author
     {
-        public string uniqueId = null;
-        public string email;
-        public bool acceptedPrivacy = true;
+        public string id;
+        //public string email;
+        //public string handle;
+        //public string first_name;
+        //public string last_name;
     }
 
     [Serializable]
@@ -370,5 +388,25 @@ namespace PlayerLoopSDK
     {
         public string unityVersion;
         public string screenOrientation;
+    }
+
+    [Serializable]
+    public class ReportResponse
+    {
+        public ReportResponseData data;
+    }
+
+    [Serializable]
+    public class ReportResponseData
+    {
+        public string id;
+        public string timestamp;
+        public string client;
+        public string release;
+        public string text;
+        public string type;
+        public bool accepted_privacy;
+        public string player_id;
+        public string project_id;
     }
 }
