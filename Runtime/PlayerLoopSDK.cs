@@ -236,6 +236,10 @@ namespace PlayerLoopSDK
             {
                 app.build_type = "release";
             }
+            if (Application.isEditor)
+            {
+                app.runningInEditor = true;
+            }
         }
     }
 
@@ -271,6 +275,7 @@ namespace PlayerLoopSDK
         /// Internal build identifier, as it appears on the platform.
         /// </summary>
         public string app_build;
+        public bool runningInEditor = false;
     }
 
     [Serializable]
