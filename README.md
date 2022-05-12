@@ -22,7 +22,7 @@ If you did not do that already, head over [playerloop.io](https://playerloop.io)
 Then, in your Unity project, click on the main menu on top: `Window` and then `Package Manager`.
 ![Open package manager](./Documentation~/packageman1.png)
 
-Now click the + icon, and click on add git url.
+Now click the + icon, and click on `Add package from git URL`
 
 ![Install git package screenshot](./Documentation~/packagemanagerscreen.PNG)
 
@@ -49,38 +49,15 @@ Now paste it in the Inspector:
 
 You are ready to go! Click play on your editor to try it out.
 
-You can move the Prefab around so that it is shown when you prefer - for example, in your main menu screen. You can also change how the Prefab look so that it matches you game. Check out this Youtube tutorial if you want to see how to customize your Bug Report panel.
+You can move the Prefab around so that it is shown when you prefer - for example, in your main menu screen. You can also change how the Prefab looks so that it matches your game. Check out this Youtube tutorial if you want to see how to customize your Bug Report panel.
 
 ## Using a custom UI element
 
-If you did not do that already, head over [playerloop.io](https://playerloop.io) and sign up for an account.
+If you did not do that already, head over [playerloop.io](https://playerloop.io/) and sign up for an account.
+If you did not do that already, add the Playerloop package to your Unity project as explained in the Getting started above.
+Now you can add the PlayerLoopClient C# script component to any object in your scene. Just click on `Add Component` in the Inspector and look for `PlayerLoop Client`. Add it, and then copy/paste there your secret as detailed in the Getting Started chapter above.
 
-Then, in your Unity project, click on the main menu on top: `Window` and then `Package Manager`.
-![Open package manager](./Documentation~/packageman1.png)
-
-Now click the + icon, and click on add git url.
-
-![Install git package screenshot](./Documentation~/packagemanagerscreen.PNG)
-
-Paste this URL:
-
-```
-https://github.com/playerloop/unity-sdk.git
-```
-
-Then, in your scene, add an empty object and attach the `PlayerLoopClient` script to it. Click on the object, and in the inspector fill in the 'Secret' with the secret key available in your [PlayerLoop settings](https://playerloop.io/settings):
-![Fill in the secret screenshot](./Documentation~/packagemanagerscreen.PNG)
-
-Nice! Now you can reference that object in your scripts, by declaring it as follows:
-
-```C#
-public PlayerLoopClient playerLoopClient
-```
-
-And then, in the inspector, drag the object you created before into this field in your class, like this:
-![Drag the object screenshot](./Documentation~/packagemanagerscreen.PNG)
-
-Awesome! Now you can call this function in your script:
+You can now reference that object in your scripts, by declaring it as follows:
 
 ```C#
 playerLoopClient.SendReport("Description of the bug as sent by the user!");
