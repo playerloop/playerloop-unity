@@ -15,10 +15,48 @@ We are currently in free closed Beta! You can join us here on Discord: [![Discor
 
 ## Getting started
 
+>You can also check out our Youtube tutorial!
+
 If you did not do that already, head over [playerloop.io](https://playerloop.io) and sign up for an account.
 
 Then, in your Unity project, click on the main menu on top: `Window` and then `Package Manager`.
-![Open package manager](./Documentation~/packageman1.PNG)
+![Open package manager](./Documentation~/packageman1.png)
+
+Now click the + icon, and click on add git url.
+
+![Install git package screenshot](./Documentation~/packagemanagerscreen.PNG)
+
+Paste this URL:
+
+```
+https://github.com/playerloop/unity-sdk.git
+```
+
+Now in your Unity search bar look for PlayerLoop. You will see different elements:
+![Open package manager](./Documentation~/packageman1.png)
+
+Drag and drop the Prefab (the blue icon) in your Scene. In particular, you will want to add it to your Canvas UI
+![Open package manager](./Documentation~/packageman1.png)
+
+Now you just need to set up your secret and you are ready to go. Click on the element you just added to the Scene. In the Inspector, look for "Player Loop Client (Script)". It should look like this:
+![Open package manager](./Documentation~/packageman1.png)
+
+You will need to copy/paste there your secret. To retrieve your secret, head over to [playerloop.io/account](https://playerloop.io/account] and copy it from there:
+![Open package manager](./Documentation~/packageman1.png)
+
+Now paste it in the Inspector:
+![Open package manager](./Documentation~/packageman1.png)
+
+You are ready to go! Click play on your editor to try it out.
+
+You can move the Prefab around so that it is shown when you prefer - for example, in your main menu screen. You can also change how the Prefab look so that it matches you game. Check out this Youtube tutorial if you want to see how to customize your Bug Report panel.
+
+## Using a custom UI element
+
+If you did not do that already, head over [playerloop.io](https://playerloop.io) and sign up for an account.
+
+Then, in your Unity project, click on the main menu on top: `Window` and then `Package Manager`.
+![Open package manager](./Documentation~/packageman1.png)
 
 Now click the + icon, and click on add git url.
 
@@ -70,8 +108,7 @@ private void Start()
 }
 ```
 
-
-## Reference
+## SDK Reference
 
 ```C#
 void playerLoopClient.SendReport(string ReportMessage, bool userPrivacyAccepted = false, string UserEmail = null, List<string> attachmentsFilePaths = null)
