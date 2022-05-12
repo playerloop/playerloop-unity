@@ -41,7 +41,7 @@ Drag and drop the Prefab (the blue cube icon) in your Scene. In particular, you 
 Now you just need to set up your secret and you are ready to go. Click on the element you just added to the Scene. In the Inspector, look for "Player Loop Client (Script)". It should look like this:
 ![Open package manager](./Documentation~/secretinspector.png)
 
-You will need to copy/paste there your secret. To retrieve your secret, head over to [playerloop.io/account](https://playerloop.io/account] and copy it from there:
+You will need to copy/paste there your secret. To retrieve your secret, head over to [playerloop.io/account](https://playerloop.io/settings) and copy it from there:
 ![Open package manager](./Documentation~/p.PNG)
 
 Now paste it in the Inspector:
