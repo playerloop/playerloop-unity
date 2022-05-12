@@ -32,20 +32,20 @@ Paste this URL:
 https://github.com/playerloop/unity-sdk.git
 ```
 
-Now in your Unity search bar look for PlayerLoop. You will see different elements:
-![Open package manager](./Documentation~/packageman1.png)
+Now in your Unity search bar look for PlayerLoop. Click on 'In Packages'. You will see different elements:
+![Open package manager](./Documentation~/searchbar.png)
 
-Drag and drop the Prefab (the blue icon) in your Scene. In particular, you will want to add it to your Canvas UI
-![Open package manager](./Documentation~/packageman1.png)
+Drag and drop the Prefab (the blue cube icon) in your Scene. In particular, you will want to add it to your Canvas UI
+![Open package manager](./Documentation~/addprefab.gif)
 
 Now you just need to set up your secret and you are ready to go. Click on the element you just added to the Scene. In the Inspector, look for "Player Loop Client (Script)". It should look like this:
-![Open package manager](./Documentation~/packageman1.png)
+![Open package manager](./Documentation~/secretinspector.png)
 
 You will need to copy/paste there your secret. To retrieve your secret, head over to [playerloop.io/account](https://playerloop.io/account] and copy it from there:
-![Open package manager](./Documentation~/packageman1.png)
+![Open package manager](./Documentation~/p.PNG)
 
 Now paste it in the Inspector:
-![Open package manager](./Documentation~/packageman1.png)
+![Open package manager](./Documentation~/secretpasted.png)
 
 You are ready to go! Click play on your editor to try it out.
 
