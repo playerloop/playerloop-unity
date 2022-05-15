@@ -411,7 +411,7 @@ namespace PlayerLoopSDK
         public string text;
         public string type;
         public bool accepted_privacy;
-        public string player_id;
-        public string project_id;
+        public string player;
+        public string project;
     }
 }
