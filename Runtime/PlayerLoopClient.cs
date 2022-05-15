@@ -115,7 +115,7 @@ public class PlayerLoopClient : MonoBehaviour
             WWWForm formData = new WWWForm();
             byte[] fileRawBytes = File.ReadAllBytes(filepath);
             formData.AddBinaryData("file", fileRawBytes);
-            UnityWebRequest www = UnityWebRequest.Post(apiURL + "/reports/" + @event.id + "/attachment", formData);
+            UnityWebRequest www = UnityWebRequest.Post(apiURL + "/reports/" + @event.id + "/attachments", formData);
             www.SetRequestHeader("Authorization", secret);
             www.SetRequestHeader("Content-Disposition", "form-data");
             www.SetRequestHeader("filename", Path.GetFileName(filepath));
