@@ -114,15 +114,9 @@ public class PlayerLoopClient : MonoBehaviour
         {
             WWWForm formData = new WWWForm();
             byte[] fileRawBytes = File.ReadAllBytes(filepath);
-            formData.AddBinaryData("file", fileRawBytes);
+            formData.AddBinaryData("file", fileRawBytes, Path.GetFileName(filepath), "application/octet-stream");
             UnityWebRequest www = UnityWebRequest.Post(apiURL + "/reports/" + @event.id + "/attachments", formData);
             www.SetRequestHeader("Authorization", secret);
-            www.SetRequestHeader("Content-Disposition", "form-data");
-            www.SetRequestHeader("filename", Path.GetFileName(filepath));
-            www.SetRequestHeader("name", "file");
-            //www.SetRequestHeader("Content-Type", "multipart/form-data");
-            //www.SetRequestHeader("boundary", "boundary====");
-            //www.SetRequestHeader("Content-Type", "application/octet-stream");
             yield return www.SendWebRequest();
             while (!www.isDone)
             {
@@ -142,7 +136,7 @@ public class PlayerLoopClient : MonoBehaviour
                 Debug.Log("one uploaded completed!");
                 if (completedUploads >= @event.localAttachmentPaths.Count)
                 {
-                    Debug.Log("All uploads completed completed!");
+                    Debug.Log("All uploads completed!");
                     yield return null;
                     reportSent.Invoke();
                 }
