@@ -81,6 +81,7 @@ public class BugReportPanel : MonoBehaviour
         {
             o.SetActive(true);
         }
+        transform.gameObject.SetActive(false);
     }
 
     public void OpenPrivacyPolicyPage()
