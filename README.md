@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://playerloop.io" target="_blank" align="center">
-    <img src="logohere.png" width="280">
+    <img src="https://app.playerloop.io/assets/playerloop_logo.0569e20f.svg" width="280">
   </a>
   <br />
 </p>
@@ -29,7 +29,7 @@ Now click the + icon, and click on `Add package from git URL`
 Paste this URL:
 
 ```
-https://github.com/playerloop/unity-sdk.git
+https://github.com/playerloop/playerloop-unity.git
 ```
 
 Now in your Unity search bar look for PlayerLoop. Click on 'In Packages'. You will see different elements:
@@ -53,7 +53,7 @@ You can move the Prefab around so that it is shown when you prefer - for example
 
 ## Using a custom UI element
 
-If you did not do that already, head over [playerloop.io](https://playerloop.io/) and sign up for an account.
+If you did not do that already, head overï¿½[playerloop.io](https://playerloop.io/)ï¿½and sign up for an account.
 If you did not do that already, add the Playerloop package to your Unity project as explained in the Getting started above.
 Now you can add the PlayerLoopClient C# script component to any object in your scene. Just click on `Add Component` in the Inspector and look for `PlayerLoop Client`. Add it, and then copy/paste there your secret as detailed in the Getting Started chapter above.
 
