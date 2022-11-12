@@ -11,13 +11,13 @@ Get bug reports from your players, fast. Improve your game, reward the community
 
 If your player thinks there is a bug, you have something to fix. A lot of these do not throw exceptions in your code. With PlayerLoop, you can easily implement a bug reporting feature inside your game. You also get an easy-to-use interface to check the reports and download the savegame files and the screenshots to figure out what the problem is.
 
-We are currently in free closed Beta! You can join us here on Discord: [![Discord Chat](https://img.shields.io/discord/929061183233884200?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/rGeGVqnVps)
+We are giving Playerloop away for free for 2 years to the first 50 developers! You can join us here on Discord: [![Discord Chat](https://img.shields.io/discord/929061183233884200?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/rGeGVqnVps)
 
 ## Getting started
+<!-- 
+>You can also check out our Youtube tutorial! -->
 
->You can also check out our Youtube tutorial!
-
-If you did not do that already, head over [playerloop.io](https://playerloop.io) and sign up for an account.
+If you did not do that already, head over [playerloop.io](https://app.playerloop.io/signup) and sign up for an account.
 
 Then, in your Unity project, click on the main menu on top: `Window` and then `Package Manager`.
 ![Open package manager](./Documentation~/packageman1.png)
@@ -41,10 +41,7 @@ Drag and drop the Prefab (the blue cube icon) in your Scene. In particular, you 
 Now you just need to set up your secret and you are ready to go. Click on the element you just added to the Scene. In the Inspector, look for "Player Loop Client (Script)". It should look like this:
 ![Open package manager](./Documentation~/secretinspector.png)
 
-You will need to copy/paste there your secret. To retrieve your secret, head over to [playerloop.io/account](https://playerloop.io/settings) and copy it from there:
-![Open package manager](./Documentation~/p.PNG)
-
-Now paste it in the Inspector:
+You will need to copy/paste there your secret. To retrieve your secret, check out the Project settings in your project and copy it from there.  Now paste it in the Inspector:
 ![Open package manager](./Documentation~/secretpasted.png)
 
 You are ready to go! Click play on your editor to try it out.
@@ -53,7 +50,6 @@ You can move the Prefab around so that it is shown when you prefer - for example
 
 ## Using a custom UI element
 
-If you did not do that already, head over�[playerloop.io](https://playerloop.io/)�and sign up for an account.
 If you did not do that already, add the Playerloop package to your Unity project as explained in the Getting started above.
 Now you can add the PlayerLoopClient C# script component to any object in your scene. Just click on `Add Component` in the Inspector and look for `PlayerLoop Client`. Add it, and then copy/paste there your secret as detailed in the Getting Started chapter above.
 
@@ -109,7 +105,7 @@ This is a function that opens the PlayerLoop Privacy Policy page. Useful to give
 
 ## Example scene
 
-The package includes a sample scene with a UI implementation.
+The package includes a sample scene with a UI implementation inside the Samples~ directory.
 
 ## Contributing
 
