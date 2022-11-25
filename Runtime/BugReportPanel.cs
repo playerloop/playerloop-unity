@@ -94,5 +94,6 @@ namespace PlayerLoopSDK
         {
             Application.OpenURL(playerLoopClient.PrivacyPolicyURL());
         }
+        transform.gameObject.SetActive(false);
     }
 }
