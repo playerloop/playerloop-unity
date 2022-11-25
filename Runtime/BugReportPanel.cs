@@ -29,7 +29,7 @@ namespace PlayerLoopSDK
         public GameObject[] steps;
         public UnityEngine.UI.InputField bugDescriptionField;
         public UnityEngine.UI.Toggle privacyToggle;
-        public PlayerLoopClient playerLoopClient;
+        public PlayerLoopSDK.PlayerLoopClient playerLoopClient;
 
         private void OnEnable()
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InGameMenu : MonoBehaviour
+public class PlayerloopDemoInGameMenu : MonoBehaviour
 {
     public GameObject[] panels;
     
