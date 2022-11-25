@@ -7,19 +7,19 @@
   "unityRelease": "6f1",
   "author" : {
     "name": "PlayerLoop",
-    "email" : "info@playerloop.io",
+    "email" : "admin@playerloop.io",
     "url" : "https://playerloop.io"
   },
-  "documentationUrl" : "https://playerloop.io/documentation#client",
+  "documentationUrl" : "https://github.com/playerloop/playerloop-unity",
   "keywords" : [ "bug", "bug reporting", "player report"],
   "license" : "MIT",
   "repository": {
-    "url": "https://github.com/playerloop/unity-sdk.git",
+    "url": "https://github.com/playerloop/playerloop-unity.git",
     "type": "git"
   },
   "samples": [
         {
-            "displayName": "Menu example",
+            "displayName": "Menu example demo",
             "description": "A simple UI to show how to implement the SDK",
             "path": "Samples~/Demo"
         }

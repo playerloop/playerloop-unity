@@ -7,7 +7,7 @@ public class BugReportPanel : MonoBehaviour
     public GameObject[] steps;
     public UnityEngine.UI.InputField bugDescriptionField;
     public UnityEngine.UI.Toggle privacyToggle;
-    public PlayerLoopSDK playerLoopSDK;
+    public PlayerLoopClient playerLoopClient;
 
     private void OnEnable()
     {
@@ -36,7 +36,7 @@ public class BugReportPanel : MonoBehaviour
         OpenStep(1);
 
         //Send the report
-        playerLoopSDK.SendReport(bugDescriptionField.text);
+        playerLoopClient.SendReport(bugDescriptionField.text, privacyToggle.isOn);
 
         //Another example with user data and savegame file
         //playerLoopSDK.SendReport(bugDescriptionField.text, privacyToggle.isOn, "SteamSDK.user.email", new List<string>() { Application.persistentDataPath + "savegame.gd" } );
@@ -45,8 +45,8 @@ public class BugReportPanel : MonoBehaviour
     private void Start()
     {
         //subscribe to the event of report completed
-        playerLoopSDK.reportSent.AddListener(ReportSent);
-        playerLoopSDK.reportErrorInSending.AddListener(ReportError);
+        playerLoopClient.reportSent.AddListener(ReportSent);
+        playerLoopClient.reportErrorInSending.AddListener(ReportError);
     }
 
     private void ReportSent()
